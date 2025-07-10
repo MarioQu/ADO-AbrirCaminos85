@@ -1,0 +1,81 @@
+<style>
+    /* Estilos Banner Principal */
+    #MainBannerHome{
+        height: 600px;
+        position: relative;
+        overflow: hidden;
+    }
+    #MainBannerHome .container-lg{
+        height: 100%;
+    }
+    #MainBannerHome .yt-video,
+    #MainBannerHome .bi-video{
+        width: 2048px;
+        height: 1152px;
+        left: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%,-50%);
+    }
+    #MainBannerHome .bannerimg{
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        position: absolute;
+        z-index: 3;
+    }
+    #MainBannerHome .opa-div{
+        background: rgba(95, 33, 103, .7); 
+        position: absolute; 
+        left: 0; 
+        top: 0; 
+        right: 0; 
+        bottom: 0; 
+        width: 100%; 
+        height: 100%; 
+        z-index: 2;
+    }
+    .social-list1{
+        list-style-type: none;
+    }
+    .social-list1 a{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        background-color: var(--red);
+    }.social-list1 a:hover{
+        background-color: var(--purple);
+    }
+</style>
+    
+
+<section class="container-fluid" id="MainBannerHome">
+    <#if (idyoutube.getData()) != "">
+        <iframe src="https://www.youtube.com/embed/${idyoutube.getData()}?autoplay=1&loop=1&mute=1&rel=0&controls=0&showinfo=0&playlist=${idyoutube.getData()}" frameborder="0" class="yt-video"></iframe>
+    <#elseif (selectvideo.getData()) != "">
+        <video src="${selectvideo.getData()}" muted autoplay loop class="bi-video"></video>
+    <#else>      
+        <img src="/documents/4523468/4635985/BannerHome.png" class="w-100 bannerimg" style="object-fit: cover;" alt="">                              
+    </#if>
+    
+    <div class="opa-div"> </div>
+    
+    <div class="container-lg d-flex align-items-center justify-content-center">
+        <div class="row" >
+            <div class="col-lg-12 text-center py-5" style="position: relative; z-index: 3;">
+                <h1 class="titles1 fwhite mb-3" data-aos="fade-dowm" data-aos="fade-up" data-aos-duration="1300">
+                    ${titulo.getData()}
+                </h1>
+                <p class="fwhite ptxt1" data-aos="fade-down" data-aos-duration="1600">
+                    <#if (descripcion.getData())??>
+                        ${descripcion.getData()}
+                    </#if>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
