@@ -1,0 +1,88 @@
+<style>
+    #faqs_caminos .card-header,
+    #faqs_caminos .card-body{
+        height: auto;
+        border: none;
+        border-radius: 0;
+        background-color: #ffffff;
+    }
+    #faqs_caminos .card{
+        border: none;
+        border-top: 1px solid #E11F2A;
+        background-color: #ffffff;
+        border-radius: 0 !important;
+        margin-bottom: 0;
+        box-shadow: none;
+    }
+    #faqs_caminos .card:last-child{
+        border-bottom: 2px solid #1D1F24;
+    }
+    #faqs_caminos .btn[aria-expanded="true"]::after{
+        content: "";
+        float: right;
+        width: 20px;
+        height: 20px;
+        background-image: url("/documents/d/caminos/chevron-up");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 20px;
+        margin-top: -21px;
+    }
+    #faqs_caminos .btn[aria-expanded="false"]::after{
+        content: "";
+        float: right;
+        width: 20px;
+        height: 20px;
+        background-image: url("/documents/d/caminos/chevron-down");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 20px;
+        margin-top: -21px;
+    }
+    @media(max-width: 767px){
+        #faqs_caminos .btn[aria-expanded="true"]::after,
+        #faqs_caminos .btn[aria-expanded="false"]::after{
+            margin-right: -34px;
+        }
+    }
+</style>
+
+<section class="container-fluid py-5 f4back" id="faqs">   
+    <div class="container-lg">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="fpurple titles1 text-center">${Titulo.getData()}</h1>
+                <p class="ptxt text-center">
+                    ${Descripcion.getData()}
+                </p>
+                
+                <div class="accordion mt-5" id="faqs_caminos">
+                    <#assign count      = 1>
+                    <#assign countaos   = 1000>
+                    
+                    <#if GrupoPreguntas.getSiblings()?has_content>
+                        <#list GrupoPreguntas.getSiblings() as cur_GrupoPreguntas>                      
+                            <div class="card pt-3 pb-2" data-aos="fade-up" data-aos-duration="${countaos}">
+                                <div class="card-header pl-0" id="heading${count}">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-block text-left fpurple titles4 pl-0 shadow-none" type="button" data-toggle="collapse" data-target="#collapse${count}" aria-expanded="true" aria-controls="collapse${count}">
+                                            ${cur_GrupoPreguntas.Pregunta.getData()} <br>
+                                        </button>
+                                    </h2>
+                                </div>
+
+                                <div id="collapse${count}" class="collapse show" aria-labelledby="heading${count}" data-parent="#faqs_caminos">
+                                    <div class="card-body fdark3 ptxt4 pl-0 pt-0 ml-0">
+                                        ${cur_GrupoPreguntas.Respuesta.getData()} <br>
+                                    </div>
+                                </div>
+                            </div>
+                            <#assign count      = count + 1>
+                            <#assign countaos   = countaos + 250>
+                        </#list>
+                    </#if>						         
+                </div><!-- end accordion -->
+            </div>
+        </div>
+    </div>
+</section>

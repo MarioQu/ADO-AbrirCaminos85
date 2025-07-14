@@ -1,3 +1,30 @@
+/* Estilos de fuentes */
+@font-face {
+    font-family: 'GothamPro', Arial, Helvetica, sans-serif;
+    src: url('/documents/d/caminos/gothampro');
+    font-weight: 400 !important;
+}
+@font-face {
+    font-family: 'GothamPro-Light', Arial, Helvetica, sans-serif;
+    src: url('/documents/d/caminos/gothampro-light');
+}
+@font-face {
+    font-family: 'GothamPro-Medium', Arial, Helvetica, sans-serif;
+    src: url('/documents/d/caminos/gotham-medium');
+}
+@font-face {
+    font-family: 'GothamPro-Bold', Arial, Helvetica, sans-serif;
+    src: url('/documents/d/caminos/gothampro-bold');
+}
+
+body,
+body #content{
+    font-family: 'GothamPro', Arial, Helvetica, sans-serif;
+}
+p strong{
+    font-family: 'GothamPro-Bold', Arial, Helvetica, sans-serif;
+}
+
 /* Estilos generales */
 :root{
     --purple:   #5F2167;
@@ -10,12 +37,12 @@
     --dark3:    #222222;
     --dark4:    #1D1F24;
 }
-body{
-    background-color: var(--fafa);
-}
 .container-fluid{ 
     padding-left: 0; 
     padding-right: 0; 
+}
+.portlet {
+    margin-bottom: 0;
 }
 .row{ 
     margin-left: 0; 
@@ -24,15 +51,13 @@ body{
 button{
     box-shadow: none !important;
 }
-.myborder{
+.border{
     border: 1px dashed #00ffff !important;
 }
 .backpurple{
     background-color: var(--purple);
 }
-.faback{
-    background-color: var(--fafa);
-}
+
 .fpurple{
     color: var(--purple);
 }
@@ -45,22 +70,12 @@ button{
 .fblack{
     color: var(--black);   
 }
-.fdark1{
-    color: var(--dark1);
-}
-.fdark2{
-    color: var(--dark2);
-}
-.fdark3{
-    color: var(--dark3);
-}
-.fdark3{
-    color: var(--dark3);
-}
+
 .titles1{
+    font-family: 'GothamPro-Medium', Arial, Helvetica, sans-serif;
     font-weight: 700;
     font-size: 40px;
-    line-height: 48px
+    line-height: 40px
 }
 .titles2{
     font-weight: 700;
@@ -73,6 +88,7 @@ button{
     line-height: 38.4px;
 }
 .titles4{
+    font-family: 'GothamPro-Medium', Arial, Helvetica, sans-serif;
     font-weight: 700;
     font-size: 18px;
     line-height: 21.6px;
@@ -82,25 +98,25 @@ button{
     font-size: 16px;
     line-height: 19.2px;
 }
-.ptxt{
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 21.6px;
-}
-.ptxt2{
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 16.8px;
-}
-.ptxt3{
+.txt12{
     font-weight: 400;
     font-size: 12px;
     line-height: 14.4px;
 }
-.ptxt4{
+.txt14{
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16.8px;
+}
+.txt16{
     font-weight: 400;
     font-size: 16px;
     line-height: 19.2px;
+}
+.txt18{
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21.6px;
 }
 .redbtn{
     border: 1px solid var(--red);

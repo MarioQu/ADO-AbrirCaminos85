@@ -1,0 +1,68 @@
+<style>
+    .purpleback{
+        background-color: #5F2167;
+    }
+    .fwhite{
+        color: #ffffff;   
+    }
+    .subtitles{
+        font-family: 'GothamPro-Bold', Arial, Helvetica, sans-serif;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 19.2px;
+    }
+    .titles1{
+        font-family: 'GothamPro-Bold', Arial, Helvetica, sans-serif;
+        font-size: 40px;
+        line-height: 48px
+    }
+    .ptxt2{
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 16.8px;
+    }
+    .redbtn{
+        border:1px solid #E11F2A;
+        background-color: #E11F2A;
+        color: #ffffff;   
+        font-size: 12px; 
+    }.redbtn:hover{
+        background-color: #ffffff;
+        color: #E11F2A;   
+    }
+    #manuales_main_banner .backimage{
+        background-image: url("${ImagenDestacada.getData()}");
+        background-attachment: scroll;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        height: 500px;
+    }
+</style>
+
+
+<section id="manuales_main_banner" class="container-fluid purpleback">
+    <div class="row purpleback d-flex align-items-center justify-content-center">
+        <div class="col-lg-6 px-5">
+            <p class="fwhite subtitles" data-aos="fade-right" data-aos-duration="1200">
+                ${Subtitulo.getData()}
+            </p>
+            <h1 class="titles1 fwhite mb-3" data-aos="fade-up" data-aos-duration="1300">${Titulo.getData()}</h1>
+            <p class="ptxt fwhite">
+                ${Descripcion.getData()}
+            </p>
+            
+            <#if (TextoBoton.getData()) != "">
+                <p>
+                    <a href="${LinkBoton.getData()}" target="_blank" class="btn redbtn px-5" data-aos="fade-right" data-aos-duration="1600">
+                        ${TextoBoton.getData()}
+                    </a>
+                </p>
+            </#if>  
+        </div>
+        
+        <div class="col-lg-6 backimage d-none d-lg-block">
+            
+        </div>
+    </div>
+</section>

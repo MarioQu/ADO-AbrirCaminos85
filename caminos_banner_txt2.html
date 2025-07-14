@@ -1,0 +1,34 @@
+<style>
+    #caminos_banner2{       
+        padding-top: 72px;
+        padding-bottom: 72px;
+        
+        <#if (Fieldset86123686.tipo_fondo.getData()) == "color">
+            background-color: ${Fieldset86123686.background_color.getData()};
+        <#else>
+            background-image: url("${Fieldset86123686.imagen_fondo.getData()}");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        </#if>
+    }
+
+    #caminos_banner2 h2{
+        color: ${Fieldset59170285.title_color.getData()};
+    }
+    #caminos_banner2 p{
+        color: ${Fieldset59170285.body_txt_color.getData()};
+    }
+</style>
+
+
+<section class="container-fluid" id="caminos_banner2">
+    <div class="container-lg">
+        <h2 class="titles1 text-left mb-5">${titulo.getData()}</h2>
+        <p class="txt18 text-left" data-aos="fade-up" data-aos-duration="1300">
+            <#if (descripcion.getData())??>
+                ${descripcion.getData()}
+            </#if>
+        </p>
+    </div>
+</section>
