@@ -141,3 +141,10 @@ button{
     background-color: var(--white);
     color: var(--purple);   
 }
+
+@media (max-width: 767px){
+    .titles1{
+        font-size: 30px !important;
+        line-height: 38px !important;
+    }
+}

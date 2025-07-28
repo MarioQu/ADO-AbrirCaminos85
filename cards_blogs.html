@@ -1,0 +1,69 @@
+<style>
+    .card.blogs{
+        height: 520px;
+    }
+    .head-card{
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        height: 250px;
+    }
+    .title-entry{
+        font-family: 'GothamPro-Medium', Arial, Helvetica, sans-serif;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 24px;
+    }
+    .title-entry a{
+        text-decoration: none !important;
+        color: var(--purple);
+    }.title-entry a:hover{
+        color: var(--red);
+    }
+    .ver-mas{
+        text-decoration: none !important;
+        font-weight: bold;
+        color: var(--red);
+    }.ver-mas:hover{
+        color: var(--purple);
+    }
+</style>
+
+
+<#assign BlogsEntryLocalService = serviceLocator.findService("com.liferay.blogs.service.BlogsEntryLocalService")>
+
+
+<section class="container-fluid">
+    <div class="container-lg">
+        <div class="row">            
+            <#if entries?has_content>
+                <#list entries as assetEntry>
+                    <#assign blogEntry = BlogsEntryLocalService.getEntry(assetEntry.getClassPK())>
+                    <#assign
+                        assetRenderer = assetEntry.getAssetRenderer()
+                        viewURL = assetPublisherHelper.getAssetViewURL(renderRequest, renderResponse, assetRenderer, entry, !stringUtil.equals(assetLinkBehavior, "showFullContent"))
+                        
+                    />
+
+                    <div class="col-lg-4">
+                        <div class="card blogs shadow pb-4">
+                            <div class="head-card mb-3" id="head-card-img-${assetEntry?index}" style="background-image: url('${blogEntry.getCoverImageURL(themeDisplay)}');"></div>
+                            
+                            <div class="px-4">
+                                <h2 class="title-entry">
+                                    <a href="${viewURL}" class="fpurple">
+                                        ${assetEntry.getTitle(locale)}
+                                    </a>                            
+                                </h2>    
+                                                    
+                                <p class="txt14">
+                                    ${blogEntry.getContent()?substring(0, 200)}... <a href="${viewURL}" class="ver-mas"> ver más</a>
+                                </p>
+                            </div>
+                        </div><!-- card -->
+                    </div>
+                </#list>
+            </#if>            
+        </div>
+    </div>
+</section>

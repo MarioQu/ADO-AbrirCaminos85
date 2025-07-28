@@ -1,0 +1,140 @@
+<#assign facebook                   = "/documents/d/caminos/facebook" >
+<#assign Insta                      = "/documents/d/caminos/insta" >
+<#assign logo_x                     = "/documents/d/caminos/x" >
+<#assign Youtube                    = "/documents/d/caminos/youtube" >
+<link rel="stylesheet" href="/documents/d/caminos/aos">
+<script src="/documents/d/caminos/aos-1"></script>
+
+
+<div class="inicio py-2" id="to-top">
+    <span class="fwhite txt14">Inicio de Página</span>
+</div>
+
+<div class="container-fluid footer pb-3">
+    <div class="container-lg">
+        <div class="row pt-5 pb-3">
+            <#if ArbolDePaginas.getSiblings()?has_content>
+                <#list ArbolDePaginas.getSiblings() as cur_Arbol>
+                    <div class="col">
+                        <p class="titles4 mb-4 fwhite">${cur_Arbol.TituloDeColumna.getData()}</p>
+                        <ul class="m-0 p-0">                        
+                            <#if cur_Arbol.TextoLink.getSiblings()?has_content>
+                                <#list cur_Arbol.TextoLink.getSiblings() as cur_TextoLink>
+                                <li class="mb-3">
+                                    <a href="${cur_TextoLink.URLLink.getData()}" target="_self" class="mb-3">
+                                        ${cur_TextoLink.getData()}
+                                    </a>
+                                </li>
+                                </#list>    
+                            </#if>                           
+                        </ul>         
+                    </div>
+                </#list>
+            </#if>
+            
+            
+            <!-- Contenido fijo -->
+            <div class="col mt-3 mt-sm-0 mt-md-0 mt-lg-0 text-center text-sm-center text-md-left text-lg-left">
+                <p class="titles4 mb-4 fwhite">Síguenos</p>
+                <p class="icon-siguenos">
+                    <a href="https://www.facebook.com/TuADO/" target="_blank"><img src="${facebook}"></a>
+                    <a href="https://www.instagram.com/tuadomx/" target="_blank"><img src="${Insta}"></a>
+                    <a href="https://twitter.com/tuado/" target="_blank"><img src="${logo_x}"></a>
+                    <a href="https://www.youtube.com/user/autobusesADO" target="_blank"><img src="${Youtube}"></a>
+                </p>
+            </div>
+        </div> 
+    </div>          
+    
+    <hr style="border-top: 1px solid #ccc; width: 100%;">
+    
+    <div class="container-lg text-center">        
+        <img src="${LogoDelSitio.getData()}" class="logo-footer">              
+    </div>
+</div>
+ 
+
+<div class="backpurple">
+    <div class="container-lg py-3">
+        <ul class="p-0 m-0 d-flex justify-content-between align-items-center flex-column flex-sm-column flex-md-row flex-lg-row">
+            <#if BaseLegales.TextoOLinkLegales.getSiblings()?has_content>
+                <#list BaseLegales.TextoOLinkLegales.getSiblings() as cur_BaseLegales_TextoOLinkLegales>
+                    <li class="txt12 fwhite">${cur_BaseLegales_TextoOLinkLegales.getData()}</li>
+                </#list>
+            </#if>
+        </ul>            
+    </div>
+</div>
+
+
+
+<style>
+    #to-top{
+        cursor: pointer;
+    }
+    ul{ list-style-type: none; }
+    p{ margin: 0; padding: 0; }
+    .portlet { margin-bottom: 0px; }
+    .footer a, 
+    .footer a:link, 
+    .footer a:visited {
+        font-family: 'GothamPro-Light', Arial, Helvetica, sans-serif;
+        color: #FFFF;
+        text-decoration: none;
+    }
+    .footer a:hover{
+        color: var(--red);
+    }
+    .inicio{
+        background-color: #263238;
+        text-align: center;
+        font-family: 'GothamPro';
+        padding: 3px 0px;
+    }.inicio a{
+        color: #fff !important;
+        text-decoration: none;
+    }
+    .footer .logo-footer{
+        width: 20%;
+    }
+    .footer{
+        background-color: #373A43;
+    }
+    .icon-siguenos img{
+        width: 40px;
+    }
+
+    @media only screen and (max-width: 600px) {
+        .footer .container{
+            width: 100%;
+        }
+        .footer .col-f{
+            width: 45%;
+            margin-left: 9px;
+        }
+        .footer .img-avanza{
+            margin-right: 13px;
+            padding-right: 0px;
+            width: 70px;
+        }
+        .footer .img-hola{
+            width: 50px;
+        }
+        .b-final .footer-fin{
+            display: inline-block; 
+            width: 100%; 
+            vertical-align: top; 
+            text-align: center;
+        }
+    }
+</style>
+
+<script>
+    AOS.init(); 
+    
+    $(document).ready(function() {
+        $('#to-top').click(function() {
+            $("html, body").animate({scrollTop: 0}, 800);
+        });
+    }); 
+</script>
